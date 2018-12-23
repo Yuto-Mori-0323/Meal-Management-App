@@ -14,6 +14,8 @@
 		901FC87921CFD4EF00856F19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 901FC87721CFD4EF00856F19 /* LaunchScreen.storyboard */; };
 		901FC88421CFD4EF00856F19 /* Meal_ManagementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901FC88321CFD4EF00856F19 /* Meal_ManagementTests.swift */; };
 		901FC88F21CFD4EF00856F19 /* Meal_ManagementUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901FC88E21CFD4EF00856F19 /* Meal_ManagementUITests.swift */; };
+		901FC89D21CFE23300856F19 /* registration Page ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901FC89C21CFE23300856F19 /* registration Page ViewController.swift */; };
+		901FC89F21CFEA2E00856F19 /* Search Page ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901FC89E21CFEA2E00856F19 /* Search Page ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		901FC88A21CFD4EF00856F19 /* Meal ManagementUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Meal ManagementUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		901FC88E21CFD4EF00856F19 /* Meal_ManagementUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal_ManagementUITests.swift; sourceTree = "<group>"; };
 		901FC89021CFD4EF00856F19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		901FC89C21CFE23300856F19 /* registration Page ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "registration Page ViewController.swift"; sourceTree = "<group>"; };
+		901FC89E21CFEA2E00856F19 /* Search Page ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Search Page ViewController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +104,8 @@
 				901FC86E21CFD4ED00856F19 /* AppDelegate.swift */,
 				901FC87021CFD4ED00856F19 /* ViewController.swift */,
 				901FC87221CFD4ED00856F19 /* Main.storyboard */,
+				901FC89E21CFEA2E00856F19 /* Search Page ViewController.swift */,
+				901FC89C21CFE23300856F19 /* registration Page ViewController.swift */,
 				901FC87521CFD4EF00856F19 /* Assets.xcassets */,
 				901FC87721CFD4EF00856F19 /* LaunchScreen.storyboard */,
 				901FC87A21CFD4EF00856F19 /* Info.plist */,
@@ -258,6 +264,8 @@
 			files = (
 				901FC87121CFD4ED00856F19 /* ViewController.swift in Sources */,
 				901FC86F21CFD4ED00856F19 /* AppDelegate.swift in Sources */,
+				901FC89F21CFEA2E00856F19 /* Search Page ViewController.swift in Sources */,
+				901FC89D21CFE23300856F19 /* registration Page ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
