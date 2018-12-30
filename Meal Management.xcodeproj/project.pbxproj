@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		531899D9B850975D3DBF2F49 /* Pods_Meal_ManagementUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2B79A3E1101715AB4780287 /* Pods_Meal_ManagementUITests.framework */; };
+		7650E7E1CD228281602D3F0E /* Pods_Meal_ManagementTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26600BA7275BBAC0C21DD9AC /* Pods_Meal_ManagementTests.framework */; };
 		901FC86F21CFD4ED00856F19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901FC86E21CFD4ED00856F19 /* AppDelegate.swift */; };
 		901FC87121CFD4ED00856F19 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901FC87021CFD4ED00856F19 /* ViewController.swift */; };
 		901FC87421CFD4ED00856F19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 901FC87221CFD4ED00856F19 /* Main.storyboard */; };
@@ -16,6 +18,7 @@
 		901FC88F21CFD4EF00856F19 /* Meal_ManagementUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901FC88E21CFD4EF00856F19 /* Meal_ManagementUITests.swift */; };
 		901FC89D21CFE23300856F19 /* registration Page ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901FC89C21CFE23300856F19 /* registration Page ViewController.swift */; };
 		901FC89F21CFEA2E00856F19 /* Search Page ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901FC89E21CFEA2E00856F19 /* Search Page ViewController.swift */; };
+		AE0171F848DCD10F2F2CFF44 /* Pods_Meal_Management.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88C29BCC288BEF5D08AD6352 /* Pods_Meal_Management.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E07E8B663D1193ED67AA407 /* Pods-Meal ManagementUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meal ManagementUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Meal ManagementUITests/Pods-Meal ManagementUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		26600BA7275BBAC0C21DD9AC /* Pods_Meal_ManagementTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Meal_ManagementTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		55442061857AE2B53E4D493A /* Pods-Meal Management.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meal Management.release.xcconfig"; path = "Pods/Target Support Files/Pods-Meal Management/Pods-Meal Management.release.xcconfig"; sourceTree = "<group>"; };
+		88C29BCC288BEF5D08AD6352 /* Pods_Meal_Management.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Meal_Management.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		901FC86B21CFD4ED00856F19 /* Meal Management.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meal Management.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		901FC86E21CFD4ED00856F19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		901FC87021CFD4ED00856F19 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -51,6 +58,11 @@
 		901FC89021CFD4EF00856F19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		901FC89C21CFE23300856F19 /* registration Page ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "registration Page ViewController.swift"; sourceTree = "<group>"; };
 		901FC89E21CFEA2E00856F19 /* Search Page ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Search Page ViewController.swift"; sourceTree = "<group>"; };
+		B25C726895C63014A5FA79A0 /* Pods-Meal ManagementTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meal ManagementTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Meal ManagementTests/Pods-Meal ManagementTests.release.xcconfig"; sourceTree = "<group>"; };
+		B2B79A3E1101715AB4780287 /* Pods_Meal_ManagementUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Meal_ManagementUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE4864D38AF631FD107DF8D2 /* Pods-Meal ManagementTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meal ManagementTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Meal ManagementTests/Pods-Meal ManagementTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DAABCC86E3FD8DC9AEBFDDE8 /* Pods-Meal ManagementUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meal ManagementUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Meal ManagementUITests/Pods-Meal ManagementUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E188472565E230CAD2F0205B /* Pods-Meal Management.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meal Management.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Meal Management/Pods-Meal Management.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE0171F848DCD10F2F2CFF44 /* Pods_Meal_Management.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7650E7E1CD228281602D3F0E /* Pods_Meal_ManagementTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				531899D9B850975D3DBF2F49 /* Pods_Meal_ManagementUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +100,8 @@
 				901FC88221CFD4EF00856F19 /* Meal ManagementTests */,
 				901FC88D21CFD4EF00856F19 /* Meal ManagementUITests */,
 				901FC86C21CFD4ED00856F19 /* Products */,
+				DAD8BFDFA4EB07C02FD16290 /* Pods */,
+				F5DBFBD6E5316C6059392A92 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -131,6 +148,29 @@
 			path = "Meal ManagementUITests";
 			sourceTree = "<group>";
 		};
+		DAD8BFDFA4EB07C02FD16290 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E188472565E230CAD2F0205B /* Pods-Meal Management.debug.xcconfig */,
+				55442061857AE2B53E4D493A /* Pods-Meal Management.release.xcconfig */,
+				BE4864D38AF631FD107DF8D2 /* Pods-Meal ManagementTests.debug.xcconfig */,
+				B25C726895C63014A5FA79A0 /* Pods-Meal ManagementTests.release.xcconfig */,
+				0E07E8B663D1193ED67AA407 /* Pods-Meal ManagementUITests.debug.xcconfig */,
+				DAABCC86E3FD8DC9AEBFDDE8 /* Pods-Meal ManagementUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F5DBFBD6E5316C6059392A92 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				88C29BCC288BEF5D08AD6352 /* Pods_Meal_Management.framework */,
+				26600BA7275BBAC0C21DD9AC /* Pods_Meal_ManagementTests.framework */,
+				B2B79A3E1101715AB4780287 /* Pods_Meal_ManagementUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,9 +178,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 901FC89321CFD4EF00856F19 /* Build configuration list for PBXNativeTarget "Meal Management" */;
 			buildPhases = (
+				D509E54378D15C2A183AFACF /* [CP] Check Pods Manifest.lock */,
 				901FC86721CFD4ED00856F19 /* Sources */,
 				901FC86821CFD4ED00856F19 /* Frameworks */,
 				901FC86921CFD4ED00856F19 /* Resources */,
+				CAAB70F7E3A990F38B665BA2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -155,6 +197,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 901FC89621CFD4EF00856F19 /* Build configuration list for PBXNativeTarget "Meal ManagementTests" */;
 			buildPhases = (
+				F6B89865A1A9015D270CEBF7 /* [CP] Check Pods Manifest.lock */,
 				901FC87B21CFD4EF00856F19 /* Sources */,
 				901FC87C21CFD4EF00856F19 /* Frameworks */,
 				901FC87D21CFD4EF00856F19 /* Resources */,
@@ -173,6 +216,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 901FC89921CFD4EF00856F19 /* Build configuration list for PBXNativeTarget "Meal ManagementUITests" */;
 			buildPhases = (
+				5E5D804695D04E7C5101B01D /* [CP] Check Pods Manifest.lock */,
 				901FC88621CFD4EF00856F19 /* Sources */,
 				901FC88721CFD4EF00856F19 /* Frameworks */,
 				901FC88821CFD4EF00856F19 /* Resources */,
@@ -256,6 +300,99 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5E5D804695D04E7C5101B01D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Meal ManagementUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CAAB70F7E3A990F38B665BA2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Meal Management/Pods-Meal Management-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Meal Management/Pods-Meal Management-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D509E54378D15C2A183AFACF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Meal Management-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F6B89865A1A9015D270CEBF7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Meal ManagementTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		901FC86721CFD4ED00856F19 /* Sources */ = {
@@ -438,6 +575,7 @@
 		};
 		901FC89421CFD4EF00856F19 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E188472565E230CAD2F0205B /* Pods-Meal Management.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -456,6 +594,7 @@
 		};
 		901FC89521CFD4EF00856F19 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 55442061857AE2B53E4D493A /* Pods-Meal Management.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -474,6 +613,7 @@
 		};
 		901FC89721CFD4EF00856F19 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE4864D38AF631FD107DF8D2 /* Pods-Meal ManagementTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -495,6 +635,7 @@
 		};
 		901FC89821CFD4EF00856F19 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B25C726895C63014A5FA79A0 /* Pods-Meal ManagementTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -516,6 +657,7 @@
 		};
 		901FC89A21CFD4EF00856F19 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E07E8B663D1193ED67AA407 /* Pods-Meal ManagementUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -536,6 +678,7 @@
 		};
 		901FC89B21CFD4EF00856F19 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DAABCC86E3FD8DC9AEBFDDE8 /* Pods-Meal ManagementUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
