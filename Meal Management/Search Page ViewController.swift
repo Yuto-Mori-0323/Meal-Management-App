@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class Search_Page_ViewController: UIViewController {
 
@@ -15,6 +16,17 @@ class Search_Page_ViewController: UIViewController {
     @IBAction func gotoTop(_ sender: Any) {
         // 現在のシーンを閉じて元のシーンに戻る
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func Registration(_ sender: Any) {
+        let realm = try! Realm()
+        
+        let dandan = Restaurant()
+        dandan.name = "だんだん"
+        
+        try! realm.write() {
+            realm.add(dandan)
+        }
     }
     
     override func viewDidLoad() {

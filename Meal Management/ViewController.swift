@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     
     @IBAction func gotoRegistration(_ sender: Any) {
         // 移動先のビューコントローラを参照する
-        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "Search Page")
+        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "Registration Page")
         // トランジションの映像効果を指定する
         nextVC?.modalTransitionStyle = .coverVertical
         // シーンを移動する
@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     
     @IBAction func gotoSearch(_ sender: Any) {
         // 移動先のビューコントローラを参照する
-        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "Registration Page")
+        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "Search Page")
         // トランジションの映像効果を指定する
         nextVC?.modalTransitionStyle = .coverVertical
         // シーンを移動する
