@@ -21,12 +21,23 @@ class registration_Page_ViewController: UIViewController {
     
     @IBOutlet weak var name_work01: UITextField!
     
+    @IBOutlet weak var place_work01: UITextField!
+    
     @IBAction func Registration(_ sender: Any) {
-        let realm = try! Realm()
+        
+        let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
+        let realm = try! Realm(configuration: config)
+        
         //データベースへの登録
         let restaurant1 = Restaurant()
         let name_work02 = name_work01.text!
+        let place_work02 = place_work01.text!
+        
+        print("name_work02:\(name_work02)")
+        print("place_work02:\(place_work02)")
+        
         restaurant1.name = name_work02
+        restaurant1.place = place_work02
         
         try! realm.write() {
             realm.add(restaurant1)
@@ -60,6 +71,7 @@ class registration_Page_ViewController: UIViewController {
         
         for Restaurant in results {
             print("name: \(Restaurant.name)")
+            print("place: \(Restaurant.place)")
         }
     }
     
