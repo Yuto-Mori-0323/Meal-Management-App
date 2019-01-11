@@ -175,6 +175,8 @@
                         <viewLayoutGuide key="safeArea" id="Q6R-zB-tzO"/>
                     </view>
                     <connections>
+                        <outlet property="atmosphere_evaluation" destination="47f-Ql-Sj4" id="FtC-AH-i2o"/>
+                        <outlet property="cost_evaluation" destination="3Ew-z3-Cbg" id="yUi-7T-0WV"/>
                         <outlet property="genres" destination="hJJ-la-XLh" id="rgm-xz-0Ms"/>
                         <outlet property="name" destination="Lat-aO-QcM" id="Clf-M1-9hI"/>
                         <outlet property="place" destination="EhH-G4-PkY" id="K7V-BI-tue"/>

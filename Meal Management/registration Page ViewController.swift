@@ -13,14 +13,20 @@ class registration_Page_ViewController: UIViewController,UIPickerViewDelegate,UI
     
     let compos01 = ["中華","フレンチ","イタリアン",""]
     let compos02 = ["5","4","3","2","2","1",""]
+    let compos03 = ["5","4","3","2","2","1",""]
+    let compos04 = ["5","4","3","2","2","1",""]
  //   let compos = [["a","b"],["1","2"]]
     var item01 = "" //String
     var item02 = "" //String
+    var item03 = "" //String
+    var item04 = "" //String
     
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var place: UITextField!
     @IBOutlet weak var genres: UIPickerView!
     @IBOutlet weak var taste_evaluation: UIPickerView!
+    @IBOutlet weak var atmosphere_evaluation: UIPickerView!
+    @IBOutlet weak var cost_evaluation: UIPickerView!
     
     
     @IBAction func gotoTop(_ sender: Any) {
@@ -36,6 +42,10 @@ class registration_Page_ViewController: UIViewController,UIPickerViewDelegate,UI
             return 1
         case 2:
             return 1
+        case 3:
+            return 1
+        case 4:
+            return 1
         default:
             return 0
         }
@@ -48,6 +58,10 @@ class registration_Page_ViewController: UIViewController,UIPickerViewDelegate,UI
             return compos01.count
         case 2:
             return compos02.count
+        case 3:
+            return compos03.count
+        case 4:
+            return compos04.count
         default:
             return 0
         }
@@ -64,6 +78,10 @@ class registration_Page_ViewController: UIViewController,UIPickerViewDelegate,UI
             return compos01[row]
         case 2:
             return compos02[row]
+        case 3:
+            return compos03[row]
+        case 4:
+            return compos04[row]
         default:
             return ""
         }
@@ -78,6 +96,10 @@ class registration_Page_ViewController: UIViewController,UIPickerViewDelegate,UI
             item01 = compos01[row]
         case 2:
             item02 = compos02[row]
+        case 3:
+            item03 = compos03[row]
+        case 4:
+            item04 = compos04[row]
         default:
             break
         }
@@ -95,6 +117,9 @@ class registration_Page_ViewController: UIViewController,UIPickerViewDelegate,UI
         restaurant1.place = place.text!
         restaurant1.genres = item01
         restaurant1.taste_evaluation = item02
+        restaurant1.atmosphere_evaluation = item03
+        restaurant1.cost_evaluation = item04
+        
         
         try! realm.write() {
             realm.add(restaurant1)
@@ -130,6 +155,9 @@ class registration_Page_ViewController: UIViewController,UIPickerViewDelegate,UI
             print("name: \(Restaurant.name)")
             print("place: \(Restaurant.place)")
             print("genres: \(Restaurant.genres)")
+            print("taste_evaluation: \(Restaurant.taste_evaluation)")
+            print("atmosphere_evaluation: \(Restaurant.atmosphere_evaluation)")
+            print("cost_evaluation: \(Restaurant.cost_evaluation)")
         }
     }
     
@@ -162,6 +190,13 @@ class registration_Page_ViewController: UIViewController,UIPickerViewDelegate,UI
         taste_evaluation.dataSource = self
         taste_evaluation.tag = 2
 
+        atmosphere_evaluation.delegate = self
+        atmosphere_evaluation.dataSource = self
+        atmosphere_evaluation.tag = 3
+        
+        cost_evaluation.delegate = self
+        cost_evaluation.dataSource = self
+        cost_evaluation.tag = 4
         // Do any additional setup after loading the view.
     }
     

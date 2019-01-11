@@ -17,7 +17,9 @@ class Restaurant: Object {
  //   @objc dynamic var timeZone :String = ""
     @objc dynamic var taste_evaluation : String = ""
  //   @objc dynamic var recommended_menu : String = ""
- //   @objc dynamic var atmosphere_evaluation : Int8 = 0
+    @objc dynamic var atmosphere_evaluation : String = ""
+    @objc dynamic var cost_evaluation : String = ""
+    //   @objc dynamic var use :String = ""
  //   @objc dynamic var use :String = ""
     
 // Specify properties to ignore (Realm won't persist these)
