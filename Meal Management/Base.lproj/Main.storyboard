@@ -54,29 +54,32 @@
                                     <action selector="gotoTop:" destination="7bp-JL-PuP" eventType="touchUpInside" id="ASW-yh-KVY"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g9u-YW-byj">
-                                <rect key="frame" x="156.5" y="468.5" width="62" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g9u-YW-byj">
+                                <rect key="frame" x="233" y="522" width="62" height="30"/>
                                 <state key="normal" title="登録する"/>
                                 <connections>
                                     <action selector="Registration:" destination="7bp-JL-PuP" eventType="touchUpInside" id="X34-Kr-qJn"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="znE-qe-id9">
-                                <rect key="frame" x="41" y="482" width="62" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="znE-qe-id9">
+                                <rect key="frame" x="82" y="522" width="62" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="確認する"/>
                                 <connections>
                                     <action selector="Check:" destination="7bp-JL-PuP" eventType="touchUpInside" id="ad0-hI-wyn"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="khR-Bx-GHX">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="khR-Bx-GHX">
                                 <rect key="frame" x="268" y="568" width="62" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="更新する"/>
                                 <connections>
                                     <action selector="Update:" destination="7bp-JL-PuP" eventType="touchUpInside" id="xEl-c0-kHI"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wlj-DE-uP6">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wlj-DE-uP6">
                                 <rect key="frame" x="41" y="568" width="62" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="削除する"/>
                                 <connections>
                                     <action selector="Delete:" destination="7bp-JL-PuP" eventType="touchUpInside" id="WlZ-Cx-4Pd"/>
@@ -96,6 +99,41 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ジャンル：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iOT-aW-6pL">
+                                <rect key="frame" x="26" y="243" width="87" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="評価：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="955-A2-wWx">
+                                <rect key="frame" x="26" y="367" width="52" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="味" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JI4-n6-FOa">
+                                <rect key="frame" x="31" y="411" width="18" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="雰囲気" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LqT-Bi-1wC">
+                                <rect key="frame" x="123" y="399" width="52" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="コスパ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3u2-Bv-YOT">
+                                <rect key="frame" x="247" y="399" width="52" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Lat-aO-QcM">
                                 <rect key="frame" x="62" y="107" width="246" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -110,15 +148,25 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hJJ-la-XLh">
+                                <rect key="frame" x="62" y="275" width="246" height="80"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fhk-yt-Ei7">
+                                <rect key="frame" x="57" y="403" width="46" height="37"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="47f-Ql-Sj4">
+                                <rect key="frame" x="193" y="403" width="46" height="37"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Ew-z3-Cbg">
+                                <rect key="frame" x="307" y="403" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="znE-qe-id9" firstAttribute="centerX" secondItem="eTr-na-phP" secondAttribute="centerX" id="8Bw-UF-ggj"/>
-                            <constraint firstItem="khR-Bx-GHX" firstAttribute="centerX" secondItem="eTr-na-phP" secondAttribute="centerX" id="8Ve-bn-HZ8"/>
-                            <constraint firstItem="znE-qe-id9" firstAttribute="centerY" secondItem="eTr-na-phP" secondAttribute="centerY" id="NL9-DO-647"/>
-                            <constraint firstItem="khR-Bx-GHX" firstAttribute="centerY" secondItem="eTr-na-phP" secondAttribute="centerY" constant="-50" id="deS-wG-ZXa"/>
-                            <constraint firstItem="wlj-DE-uP6" firstAttribute="centerY" secondItem="eTr-na-phP" secondAttribute="centerY" constant="-100" id="hTi-ig-XCB"/>
-                            <constraint firstItem="wlj-DE-uP6" firstAttribute="centerX" secondItem="eTr-na-phP" secondAttribute="centerX" id="mJs-Q2-p1m"/>
                             <constraint firstItem="g9u-YW-byj" firstAttribute="centerY" secondItem="eTr-na-phP" secondAttribute="centerY" constant="150" id="n4O-nX-QJl"/>
                             <constraint firstItem="CPw-Ly-7ql" firstAttribute="centerX" secondItem="eTr-na-phP" secondAttribute="centerX" id="s9e-a2-aK8"/>
                             <constraint firstItem="CPw-Ly-7ql" firstAttribute="centerY" secondItem="eTr-na-phP" secondAttribute="centerY" constant="250" id="vsN-Y2-bEG"/>
@@ -127,8 +175,10 @@
                         <viewLayoutGuide key="safeArea" id="Q6R-zB-tzO"/>
                     </view>
                     <connections>
-                        <outlet property="name_work01" destination="Lat-aO-QcM" id="NgG-OZ-jc3"/>
-                        <outlet property="place_work01" destination="EhH-G4-PkY" id="0ge-eL-Qb0"/>
+                        <outlet property="genres" destination="hJJ-la-XLh" id="rgm-xz-0Ms"/>
+                        <outlet property="name" destination="Lat-aO-QcM" id="Clf-M1-9hI"/>
+                        <outlet property="place" destination="EhH-G4-PkY" id="K7V-BI-tue"/>
+                        <outlet property="taste_evaluation" destination="fhk-yt-Ei7" id="MxM-ZA-j84"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T60-HQ-JtT" userLabel="First Responder" sceneMemberID="firstResponder"/>

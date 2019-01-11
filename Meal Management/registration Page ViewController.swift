@@ -9,19 +9,79 @@
 import UIKit
 import RealmSwift
 
-class registration_Page_ViewController: UIViewController {
+class registration_Page_ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
     
-
+    let compos01 = ["中華","フレンチ","イタリアン",""]
+    let compos02 = ["5","4","3","2","2","1",""]
+ //   let compos = [["a","b"],["1","2"]]
+    var item01 = "" //String
+    var item02 = "" //String
+    
+    @IBOutlet weak var name: UITextField!
+    @IBOutlet weak var place: UITextField!
+    @IBOutlet weak var genres: UIPickerView!
+    @IBOutlet weak var taste_evaluation: UIPickerView!
+    
     
     @IBAction func gotoTop(_ sender: Any) {
         // 現在のシーンを閉じて元のシーンに戻る
         self.dismiss(animated: true, completion: nil)
     }
     
+  // UIPickerView作成
+    // UIPickerViewの列の数
+    func numberOfComponents(in pickerView: UIPickerView) -> Int{
+        switch pickerView.tag {
+        case 1:
+            return 1
+        case 2:
+            return 1
+        default:
+            return 0
+        }
+    }
     
-    @IBOutlet weak var name_work01: UITextField!
+    // UIPickerViewの行数、リストの数
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
+        switch pickerView.tag {
+        case 1:
+            return compos01.count
+        case 2:
+            return compos02.count
+        default:
+            return 0
+        }
+    }
     
-    @IBOutlet weak var place_work01: UITextField!
+    // 各コンポーネントの横幅の指定
+    
+    // UIPickerViewの最初の表示
+    func pickerView(_ pickerView: UIPickerView,
+                    titleForRow row: Int,
+                    forComponent component: Int) -> String? {
+        switch pickerView.tag {
+        case 1:
+            return compos01[row]
+        case 2:
+            return compos02[row]
+        default:
+            return ""
+        }
+    }
+    
+    // UIPickerViewのRowが選択された時の挙動
+    func pickerView(_ pickerView: UIPickerView,
+                    didSelectRow row: Int,
+                    inComponent component: Int) {
+        switch pickerView.tag {
+        case 1:
+            item01 = compos01[row]
+        case 2:
+            item02 = compos02[row]
+        default:
+            break
+        }
+    }
     
     @IBAction func Registration(_ sender: Any) {
         
@@ -30,14 +90,11 @@ class registration_Page_ViewController: UIViewController {
         
         //データベースへの登録
         let restaurant1 = Restaurant()
-        let name_work02 = name_work01.text!
-        let place_work02 = place_work01.text!
         
-        print("name_work02:\(name_work02)")
-        print("place_work02:\(place_work02)")
-        
-        restaurant1.name = name_work02
-        restaurant1.place = place_work02
+        restaurant1.name = name.text!
+        restaurant1.place = place.text!
+        restaurant1.genres = item01
+        restaurant1.taste_evaluation = item02
         
         try! realm.write() {
             realm.add(restaurant1)
@@ -72,6 +129,7 @@ class registration_Page_ViewController: UIViewController {
         for Restaurant in results {
             print("name: \(Restaurant.name)")
             print("place: \(Restaurant.place)")
+            print("genres: \(Restaurant.genres)")
         }
     }
     
@@ -94,6 +152,15 @@ class registration_Page_ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Delegate設定
+        genres.delegate = self
+        genres.dataSource = self
+        genres.tag = 1
+        
+        taste_evaluation.delegate = self
+        taste_evaluation.dataSource = self
+        taste_evaluation.tag = 2
 
         // Do any additional setup after loading the view.
     }
