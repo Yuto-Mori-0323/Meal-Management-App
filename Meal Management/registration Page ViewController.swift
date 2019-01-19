@@ -12,14 +12,14 @@ import RealmSwift
 class registration_Page_ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
     
     let compos01 = ["中華","フレンチ","イタリアン",""]
-    let compos02 = ["5","4","3","2","2","1",""]
-    let compos03 = ["5","4","3","2","2","1",""]
-    let compos04 = ["5","4","3","2","2","1",""]
+    let compos02 = [5,4,3,2,1]
+    let compos03 = [5,4,3,2,1]
+    let compos04 = [5,4,3,2,1]
  //   let compos = [["a","b"],["1","2"]]
     var item01 = "" //String
-    var item02 = "" //String
-    var item03 = "" //String
-    var item04 = "" //String
+    var item02 = 0 //String
+    var item03 = 0 //String
+    var item04 = 0 //String
     
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var place: UITextField!
@@ -28,6 +28,7 @@ class registration_Page_ViewController: UIViewController,UIPickerViewDelegate,UI
     @IBOutlet weak var atmosphere_evaluation: UIPickerView!
     @IBOutlet weak var cost_evaluation: UIPickerView!
     
+    @IBOutlet weak var recommended_menu: UITextField!
     
     @IBAction func gotoTop(_ sender: Any) {
         // 現在のシーンを閉じて元のシーンに戻る
@@ -77,11 +78,11 @@ class registration_Page_ViewController: UIViewController,UIPickerViewDelegate,UI
         case 1:
             return compos01[row]
         case 2:
-            return compos02[row]
+            return String(compos02[row])
         case 3:
-            return compos03[row]
+            return String(compos03[row])
         case 4:
-            return compos04[row]
+            return String(compos04[row])
         default:
             return ""
         }
@@ -119,14 +120,16 @@ class registration_Page_ViewController: UIViewController,UIPickerViewDelegate,UI
         restaurant1.taste_evaluation = item02
         restaurant1.atmosphere_evaluation = item03
         restaurant1.cost_evaluation = item04
-        
+        restaurant1.recommended_menu = recommended_menu.text!
+        let total_evaluation = item02 + item03 + item04
+        restaurant1.total_evaluation = total_evaluation
         
         try! realm.write() {
             realm.add(restaurant1)
         }
    }
     
-    @IBAction func Update(_ sender: Any) {
+    @IBAction func Update(_ sender: Any ) {
         let realm = try! Realm()
         //データベースの更新
         let results = realm.objects(Restaurant.self)
@@ -158,6 +161,7 @@ class registration_Page_ViewController: UIViewController,UIPickerViewDelegate,UI
             print("taste_evaluation: \(Restaurant.taste_evaluation)")
             print("atmosphere_evaluation: \(Restaurant.atmosphere_evaluation)")
             print("cost_evaluation: \(Restaurant.cost_evaluation)")
+            print("recommended_menu: \(Restaurant.recommended_menu)")
         }
     }
     
@@ -185,7 +189,7 @@ class registration_Page_ViewController: UIViewController,UIPickerViewDelegate,UI
         genres.delegate = self
         genres.dataSource = self
         genres.tag = 1
-        
+    
         taste_evaluation.delegate = self
         taste_evaluation.dataSource = self
         taste_evaluation.tag = 2

@@ -15,10 +15,12 @@ class Restaurant: Object {
     @objc dynamic var place : String = "" //場所
     @objc dynamic var genres : String = "" //ジャンル
  //   @objc dynamic var timeZone :String = ""
-    @objc dynamic var taste_evaluation : String = ""
+    @objc dynamic var taste_evaluation : Int = 0 //味の評価
  //   @objc dynamic var recommended_menu : String = ""
-    @objc dynamic var atmosphere_evaluation : String = ""
-    @objc dynamic var cost_evaluation : String = ""
+    @objc dynamic var atmosphere_evaluation : Int = 0 //雰囲気の評価
+    @objc dynamic var cost_evaluation : Int = 0 //コスパの評価
+    @objc dynamic var total_evaluation : Int = 0 //合計点
+    @objc dynamic var recommended_menu : String = "" //オススメメニュー
     //   @objc dynamic var use :String = ""
  //   @objc dynamic var use :String = ""
     
