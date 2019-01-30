@@ -127,6 +127,7 @@ class registration_Page_ViewController: UIViewController,UIPickerViewDelegate,UI
         try! realm.write() {
             realm.add(restaurant1)
         }
+        cflag = 1
    }
     
     @IBAction func Update(_ sender: Any ) {

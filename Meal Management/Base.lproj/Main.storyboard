@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XoC-iv-oNw">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Search Page View Controller-->
+        <!--検索-->
         <scene sceneID="n3o-Eo-dxL">
             <objects>
                 <viewController storyboardIdentifier="Search Page" id="6C6-p7-t99" customClass="Search_Page_ViewController" customModule="Meal_Management" customModuleProvider="target" sceneMemberID="viewController">
@@ -128,6 +128,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qQQ-95-OU0"/>
                     </view>
+                    <navigationItem key="navigationItem" title="検索" id="set-RC-Tew"/>
                     <connections>
                         <outlet property="evaluation_item" destination="y8G-T2-Iv9" id="3Y5-07-aEC"/>
                         <outlet property="evaluation_point" destination="ZFj-hA-5vQ" id="TWi-Cx-Naa"/>
@@ -138,9 +139,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="coh-wz-VB0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-191.19999999999999" y="-1887.7061469265368"/>
+            <point key="canvasLocation" x="1892" y="648"/>
         </scene>
-        <!--Registration Page View Controller-->
+        <!--登録-->
         <scene sceneID="U2X-Nh-zAI">
             <objects>
                 <viewController storyboardIdentifier="Registration Page" id="7bp-JL-PuP" customClass="registration_Page_ViewController" customModule="Meal_Management" customModuleProvider="target" sceneMemberID="viewController">
@@ -289,6 +290,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Q6R-zB-tzO"/>
                     </view>
+                    <navigationItem key="navigationItem" title="登録" id="xek-mk-kxz"/>
                     <connections>
                         <outlet property="atmosphere_evaluation" destination="47f-Ql-Sj4" id="FtC-AH-i2o"/>
                         <outlet property="cost_evaluation" destination="3Ew-z3-Cbg" id="yUi-7T-0WV"/>
@@ -301,7 +303,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T60-HQ-JtT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="-752.47376311844084"/>
+            <point key="canvasLocation" x="1745" y="-485"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -311,32 +313,74 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M1v-Ih-ccf">
-                                <rect key="frame" x="272" y="418.5" width="31" height="30"/>
-                                <state key="normal" title="検索"/>
-                                <connections>
-                                    <action selector="gotoSearch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tf8-g2-ey3"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qdl-1X-wUD">
-                                <rect key="frame" x="72" y="418.5" width="31" height="30"/>
-                                <state key="normal" title="登録"/>
-                                <connections>
-                                    <action selector="gotoRegistration:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JcW-DE-Z8e"/>
-                                </connections>
-                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FK4-OG-dKT">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="dataCell" textLabel="Mwo-iH-wEa" style="IBUITableViewCellStyleDefault" id="RcQ-ii-Kbt">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="120"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RcQ-ii-Kbt" id="nc9-23-q6f">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mwo-iH-wEa">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="119.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="M1v-Ih-ccf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="100" id="8cq-Q0-gv8"/>
-                            <constraint firstItem="Qdl-1X-wUD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-100" id="9de-dh-zoZ"/>
-                            <constraint firstItem="Qdl-1X-wUD" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="100" id="VqX-U3-WV1"/>
-                            <constraint firstItem="M1v-Ih-ccf" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="100" id="dGr-kr-anM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="FK4-OG-dKT" secondAttribute="bottom" id="3C3-rd-GIV"/>
+                            <constraint firstItem="FK4-OG-dKT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Dvt-O1-Xdv"/>
+                            <constraint firstItem="FK4-OG-dKT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="QfQ-on-P27"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FK4-OG-dKT" secondAttribute="trailing" id="rzQ-vB-ByB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="SBq-Iw-pId">
+                        <barButtonItem key="leftBarButtonItem" systemItem="search" id="zYJ-oe-47n">
+                            <connections>
+                                <segue destination="6C6-p7-t99" kind="show" id="fXf-hB-69C"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="WaC-2S-puf">
+                            <connections>
+                                <segue destination="7bp-JL-PuP" kind="show" id="hwj-Oa-4PT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="FK4-OG-dKT" id="PkF-Td-ysZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1076" y="133.5832083958021"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ktb-BA-XtA">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XoC-iv-oNw" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7nq-ur-apg">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="pID-rG-2OR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zzy-6I-13X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
