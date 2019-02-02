@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		531899D9B850975D3DBF2F49 /* Pods_Meal_ManagementUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2B79A3E1101715AB4780287 /* Pods_Meal_ManagementUITests.framework */; };
 		7650E7E1CD228281602D3F0E /* Pods_Meal_ManagementTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26600BA7275BBAC0C21DD9AC /* Pods_Meal_ManagementTests.framework */; };
+		9004CFD92203045A00323D46 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9004CFD82203045A00323D46 /* CustomTableViewCell.swift */; };
+		9004CFDB22052C6F00323D46 /* Detail Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9004CFDA22052C6F00323D46 /* Detail Page.swift */; };
 		901FC86F21CFD4ED00856F19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901FC86E21CFD4ED00856F19 /* AppDelegate.swift */; };
 		901FC87121CFD4ED00856F19 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901FC87021CFD4ED00856F19 /* ViewController.swift */; };
 		901FC87421CFD4ED00856F19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 901FC87221CFD4ED00856F19 /* Main.storyboard */; };
@@ -44,6 +46,8 @@
 		26600BA7275BBAC0C21DD9AC /* Pods_Meal_ManagementTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Meal_ManagementTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55442061857AE2B53E4D493A /* Pods-Meal Management.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meal Management.release.xcconfig"; path = "Pods/Target Support Files/Pods-Meal Management/Pods-Meal Management.release.xcconfig"; sourceTree = "<group>"; };
 		88C29BCC288BEF5D08AD6352 /* Pods_Meal_Management.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Meal_Management.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9004CFD82203045A00323D46 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		9004CFDA22052C6F00323D46 /* Detail Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Detail Page.swift"; sourceTree = "<group>"; };
 		901FC86B21CFD4ED00856F19 /* Meal Management.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meal Management.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		901FC86E21CFD4ED00856F19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		901FC87021CFD4ED00856F19 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +127,8 @@
 				901FC86E21CFD4ED00856F19 /* AppDelegate.swift */,
 				901FC87021CFD4ED00856F19 /* ViewController.swift */,
 				901FC87221CFD4ED00856F19 /* Main.storyboard */,
+				9004CFDA22052C6F00323D46 /* Detail Page.swift */,
+				9004CFD82203045A00323D46 /* CustomTableViewCell.swift */,
 				901FC89E21CFEA2E00856F19 /* Search Page ViewController.swift */,
 				901FC89C21CFE23300856F19 /* registration Page ViewController.swift */,
 				90219F8F21D92BA400A78669 /* Restaurant.swift */,
@@ -402,8 +408,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9004CFD92203045A00323D46 /* CustomTableViewCell.swift in Sources */,
 				90219F9021D92BA400A78669 /* Restaurant.swift in Sources */,
 				901FC87121CFD4ED00856F19 /* ViewController.swift in Sources */,
+				9004CFDB22052C6F00323D46 /* Detail Page.swift in Sources */,
 				901FC86F21CFD4ED00856F19 /* AppDelegate.swift in Sources */,
 				901FC89F21CFEA2E00856F19 /* Search Page ViewController.swift in Sources */,
 				901FC89D21CFE23300856F19 /* registration Page ViewController.swift in Sources */,

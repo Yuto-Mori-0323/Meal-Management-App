@@ -9,12 +9,13 @@
 import UIKit
 import RealmSwift
 
-class registration_Page_ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
+class registration_Page_ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
     let compos01 = ["中華","フレンチ","イタリアン",""]
     let compos02 = [5,4,3,2,1]
     let compos03 = [5,4,3,2,1]
     let compos04 = [5,4,3,2,1]
+    var picture_data: NSData? = nil
  //   let compos = [["a","b"],["1","2"]]
     var item01 = "" //String
     var item02 = 0 //String
@@ -29,6 +30,31 @@ class registration_Page_ViewController: UIViewController,UIPickerViewDelegate,UI
     @IBOutlet weak var cost_evaluation: UIPickerView!
     
     @IBOutlet weak var recommended_menu: UITextField!
+    
+    @IBAction func add_picture(_ sender: Any){
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+        // 写真を選ぶビュー
+        let pickerView = UIImagePickerController()
+        // 写真の選択元をカメラロールにする
+        // 「.camera」にすればカメラを起動できる
+        pickerView.sourceType = .photoLibrary
+        // デリゲート
+        pickerView.delegate = self
+        // ビューに表示
+        self.present(pickerView, animated: true)
+        }
+    }
+    
+    // 写真を選んだ後に呼ばれる処理
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        // 選択した写真を取得する
+        let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        picture_data = image.pngData()! as NSData
+        // ビューに表示する
+        //self.imageView.image = image
+        // 写真を選ぶビューを引っ込める
+        self.dismiss(animated: true)
+    }
     
     @IBAction func gotoTop(_ sender: Any) {
         // 現在のシーンを閉じて元のシーンに戻る
@@ -112,8 +138,11 @@ class registration_Page_ViewController: UIViewController,UIPickerViewDelegate,UI
         let realm = try! Realm(configuration: config)
         
         //データベースへの登録
-        let restaurant1 = Restaurant()
+        var maxId: Int { return try! Realm().objects(Restaurant.self).sorted(byKeyPath:"id").last?.id ?? 0 }
         
+        let restaurant1 = Restaurant()
+        restaurant1.id = maxId + 1
+        print ("id\(restaurant1.id)")
         restaurant1.name = name.text!
         restaurant1.place = place.text!
         restaurant1.genres = item01
@@ -123,6 +152,8 @@ class registration_Page_ViewController: UIViewController,UIPickerViewDelegate,UI
         restaurant1.recommended_menu = recommended_menu.text!
         let total_evaluation = item02 + item03 + item04
         restaurant1.total_evaluation = total_evaluation
+        restaurant1.picture_data = picture_data!
+        print ("picture_data\(picture_data)")
         
         try! realm.write() {
             realm.add(restaurant1)

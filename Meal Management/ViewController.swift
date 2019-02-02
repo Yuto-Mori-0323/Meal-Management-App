@@ -13,7 +13,10 @@ var cflag = 0 //グローバル変数
 
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
-    var dataList = [[String]]()
+    var table_id = 0
+    var nameList = [String]()
+    var placeList = [String]()
+    var picture_List = [UIImage]()
     @IBOutlet weak var tableView: UITableView!
     
     
@@ -24,21 +27,37 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     //セクション毎の個数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataList.count
+        return nameList.count
     }
     
     //セルの作成
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = //tableView.dequeueReusableCell(withIdentifier: "dataCell",for: indexPath)
-        UITableViewCell(style: .subtitle, reuseIdentifier: "dataCell")
-        let title = dataList[indexPath.row]
+        //UITableViewCell(style: .subtitle, reuseIdentifier: "dataCell")
+            tableView.dequeueReusableCell(withIdentifier: "dataCell") as! CustomTableViewCell
         //print ("\(title[0])")
         //print ("\(title[1])")
-        cell.textLabel?.text = title[0]
-        cell.detailTextLabel?.text = title[1]
+        //cell.textLabel?.text = title[0]
+        //cell.detailTextLabel?.text = title[1]
+        print("***\(nameList[0])***")
+        print("***\(placeList[0])***")
+        print("***\(picture_List[0])***")
+        cell.name.text = nameList[indexPath.row]
+        cell.place.text = placeList[indexPath.row]
+        cell.ImageView.image = picture_List[indexPath.row]
+        
         //print("⭐️セルの作成実行")
         
         return cell
+    }
+    
+    //セル選択時
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        // 次の画面へ移動
+        //performSegue(withIdentifier: "next", sender: data[indexPath.row])
+    //    print("セル選択時")
+    //    table_id = indexPath.row
     }
     
     @IBAction func comeHome(segue: UIStoryboardSegue){
@@ -64,23 +83,47 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         present(nextVC!, animated: true, completion: nil)
     }
     
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if let cell = sender as? UITableViewCell {
+        let indexPath = self.tableView.indexPath(for: cell)!
+        //assert(segue.destinationViewController.isKindOfClass(detailViewController))
+        let Detail_Page = segue.destination as! Detail_Page
+        Detail_Page.tabel_id = indexPath.row
+    }
+    //    var Detail_Page = segue.destination as! Detail_Page
+    //    Detail_Page.tabel_id = table_id
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         
-        let realm = try! Realm()
-        var results = realm.objects(Restaurant.self)
+        
+        let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
+        let realm = try! Realm(configuration: config)
+        
+        let realm2 = try! Realm()
+        var results = realm2.objects(Restaurant.self)
         
         for Restaurant in results {
-        let dataList1 = [Restaurant.name,Restaurant.place]
-        dataList.append(dataList1)
-        print("\(dataList1)")
-        print("\(dataList)")
+        //let dataList1 = [Restaurant.name,Restaurant.place]
+        //dataList.append(dataList1)
+        nameList.append(Restaurant.name)
+        placeList.append(Restaurant.place)
+            
+        if let picture_data = Restaurant.picture_data {
+        let picture_image = UIImage(data: Restaurant.picture_data! as Data)
+            picture_List.append(picture_image!)
+        }else{
+        let picture_image = UIImage(named: "default")
+            picture_List.append(picture_image!)
         }
+
         // Do any additional setup after loading the view, typically from a nib.
+        }
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         //super.viewDidDisappear(animated)
         if cflag == 1{
@@ -90,12 +133,26 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             let realm = try! Realm()
             var results = realm.objects(Restaurant.self)
             
-            dataList = []
+            nameList = []
+            placeList = []
+            picture_List = []
+            
             for Restaurant in results {
-                let dataList1 = [Restaurant.name,Restaurant.place]
-                dataList.append(dataList1)
-                print("\(dataList1)")
-                print("\(dataList)")
+                //let dataList1 = [Restaurant.name,Restaurant.place]
+                //dataList.append(dataList1)
+                nameList.append(Restaurant.name)
+                placeList.append(Restaurant.place)
+                print("Restaurant.picture_data\(Restaurant.picture_data)")
+                if let picture_data = Restaurant.picture_data {
+                    let picture_image = UIImage(data: Restaurant.picture_data! as Data)
+                    picture_List.append(picture_image!)
+                    print("picturedataがnilでない")
+                }else{
+                    let picture_image = UIImage(named: "default")
+                    picture_List.append(picture_image!)
+                    print("picturedataがnil")
+                }
+                
             }
         cflag = 0
         tableView.reloadData()
