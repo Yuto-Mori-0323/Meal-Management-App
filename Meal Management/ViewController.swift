@@ -47,29 +47,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
     }
     
-    @IBAction func comeHome(segue: UIStoryboardSegue){
-        
-    }
-   
-    
-    @IBAction func gotoRegistration(_ sender: Any) {
-        // 移動先のビューコントローラを参照する
-        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "Registration Page")
-        // トランジションの映像効果を指定する
-        nextVC?.modalTransitionStyle = .coverVertical
-        // シーンを移動する
-        present(nextVC!, animated: true, completion: nil)
-    }
-    
-    @IBAction func gotoSearch(_ sender: Any) {
-        // 移動先のビューコントローラを参照する
-        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "Search Page")
-        // トランジションの映像効果を指定する
-        nextVC?.modalTransitionStyle = .coverVertical
-        // シーンを移動する
-        present(nextVC!, animated: true, completion: nil)
-    }
-    
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if let cell = sender as? UITableViewCell {
         let indexPath = self.tableView.indexPath(for: cell)!
@@ -77,8 +54,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         let Detail_Page = segue.destination as! Detail_Page
         Detail_Page.tabel_id = indexPath.row + 1
     }
-    //    var Detail_Page = segue.destination as! Detail_Page
-    //    Detail_Page.tabel_id = table_id
+    
     }
     
     override func viewDidLoad() {
@@ -98,15 +74,11 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //super.viewDidDisappear(animated)
+        
         if cflag == 1{
-        //    tableView.delegate = self
-        //    tableView.dataSource = self
+        
             let access = dbAccess()
             access.dbRebuilding()
-            
-        //    let realm = try! Realm()
-        //    var results = realm.objects(Restaurant.self)
             
             nameList = []
             placeList = []

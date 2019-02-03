@@ -40,8 +40,7 @@ class dbAccess: UIViewController {
                 let picture_image = UIImage(named: "default")
                 picture_List.append(picture_image!)
             }
-            
-            // Do any additional setup after loading the view, typically from a nib.
+       
         }
         return (nameList,placeList,picture_List)
     }
@@ -79,20 +78,7 @@ class dbAccess: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

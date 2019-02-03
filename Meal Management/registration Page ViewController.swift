@@ -16,7 +16,6 @@ class registration_Page_ViewController: UIViewController,UIPickerViewDelegate,UI
     let compos03 = [5,4,3,2,1]
     let compos04 = [5,4,3,2,1]
     var picture_data: NSData? = nil
- //   let compos = [["a","b"],["1","2"]]
     var item01 = "" //String
     var item02 = 0 //String
     var item03 = 0 //String
@@ -56,10 +55,6 @@ class registration_Page_ViewController: UIViewController,UIPickerViewDelegate,UI
         self.dismiss(animated: true)
     }
     
-    @IBAction func gotoTop(_ sender: Any) {
-        // 現在のシーンを閉じて元のシーンに戻る
-        self.dismiss(animated: true, completion: nil)
-    }
     
   // UIPickerView作成
     // UIPickerViewの列の数
@@ -153,58 +148,6 @@ class registration_Page_ViewController: UIViewController,UIPickerViewDelegate,UI
         cflag = 1
    }
     
-    @IBAction func Update(_ sender: Any ) {
-        let realm = try! Realm()
-        //データベースの更新
-        let results = realm.objects(Restaurant.self)
-        
-        if let restaurant = results.first {
-            // データを更新
-            try! realm.write() {
-                restaurant.name = "吉野家"
-            }
-            
-            // write()に渡すブロックの外だと例外発生
-            //      dog.name = "First"
-        }
-    }
-    
-    
-    
-    @IBAction func Check(_ sender: Any) {
-        let realm = try! Realm()
-        //データベース内に保存してある全てのrestaurantモデルを取り出す
-        let results = realm.objects(Restaurant.self)
-        
-        print("results.count: \(results.count)")
-        
-        for Restaurant in results {
-            print("name: \(Restaurant.name)")
-            print("place: \(Restaurant.place)")
-            print("genres: \(Restaurant.genres)")
-            print("taste_evaluation: \(Restaurant.taste_evaluation)")
-            print("atmosphere_evaluation: \(Restaurant.atmosphere_evaluation)")
-            print("cost_evaluation: \(Restaurant.cost_evaluation)")
-            print("recommended_menu: \(Restaurant.recommended_menu)")
-        }
-    }
-    
-    
-    @IBAction func Delete(_ sender: Any) {
-        // Realmのインスタンスを取得
-        let realm = try! Realm()
-        
-        // Realmに保存されてるrestaurantオブジェクトを全て取得
-        let results = realm.objects(Restaurant.self)
-        
-        if let restaurant = results.last {
-            
-            // さようなら・・・
-            try! realm.write() {
-                realm.delete(restaurant)
-            }
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -225,18 +168,7 @@ class registration_Page_ViewController: UIViewController,UIPickerViewDelegate,UI
         cost_evaluation.delegate = self
         cost_evaluation.dataSource = self
         cost_evaluation.tag = 4
-        // Do any additional setup after loading the view.
+        
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
