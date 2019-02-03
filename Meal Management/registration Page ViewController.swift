@@ -133,31 +133,23 @@ class registration_Page_ViewController: UIViewController,UIPickerViewDelegate,UI
     }
     
     @IBAction func Registration(_ sender: Any) {
+        let access = dbAccess()
+        access.dbRebuilding()
         
-        let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
-        let realm = try! Realm(configuration: config)
-        
-        //データベースへの登録
-        var maxId: Int { return try! Realm().objects(Restaurant.self).sorted(byKeyPath:"id").last?.id ?? 0 }
-        
-        let restaurant1 = Restaurant()
-        restaurant1.id = maxId + 1
-        print ("id\(restaurant1.id)")
-        restaurant1.name = name.text!
-        restaurant1.place = place.text!
-        restaurant1.genres = item01
-        restaurant1.taste_evaluation = item02
-        restaurant1.atmosphere_evaluation = item03
-        restaurant1.cost_evaluation = item04
-        restaurant1.recommended_menu = recommended_menu.text!
+        let restaurant = Restaurant()
+        restaurant.name = name.text!
+        restaurant.place = place.text!
+        restaurant.genres = item01
+        restaurant.taste_evaluation = item02
+        restaurant.atmosphere_evaluation = item03
+        restaurant.cost_evaluation = item04
+        restaurant.recommended_menu = recommended_menu.text!
         let total_evaluation = item02 + item03 + item04
-        restaurant1.total_evaluation = total_evaluation
-        restaurant1.picture_data = picture_data!
-        print ("picture_data\(picture_data)")
+        restaurant.total_evaluation = total_evaluation
+        restaurant.picture_data = picture_data!
         
-        try! realm.write() {
-            realm.add(restaurant1)
-        }
+        access.dbRegistration(restaurant:restaurant)
+
         cflag = 1
    }
     

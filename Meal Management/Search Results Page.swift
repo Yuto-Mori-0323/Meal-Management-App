@@ -72,11 +72,18 @@ class Search_Results_Page: UIViewController,UITableViewDelegate,UITableViewDataS
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        let access = dbAccess()
+        var dblist = access.searched_listGet(idList:idList)
+        
+        nameList = dblist.0
+        placeList = dblist.1
+        picture_List = dblist.2
+        
         tableView.delegate = self
         tableView.dataSource = self
-        
-        
-        let realm = try! Realm()
+ /*       let realm = try! Realm()
         for id in idList{
            if let Object = realm.object(ofType:Restaurant.self,forPrimaryKey: id) {
             nameList.append(Object.name)
@@ -94,7 +101,7 @@ class Search_Results_Page: UIViewController,UITableViewDelegate,UITableViewDataS
         print("placeList\(placeList)")
             
         
-        }
+        }*/
         //idList = []
         
    //     let realm2 = try! Realm()

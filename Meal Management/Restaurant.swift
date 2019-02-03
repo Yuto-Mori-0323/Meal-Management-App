@@ -28,6 +28,9 @@ class Restaurant: Object {
     @objc dynamic var recommended_menu : String = "" //オススメメニュー
     @objc dynamic var picture_data: NSData? = nil //画像
     
+    
+    //
+    
     //   @objc dynamic var use :String = ""
  //   @objc dynamic var use :String = ""
     

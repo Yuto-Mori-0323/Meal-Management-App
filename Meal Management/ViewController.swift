@@ -32,21 +32,12 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     //セルの作成
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = //tableView.dequeueReusableCell(withIdentifier: "dataCell",for: indexPath)
-        //UITableViewCell(style: .subtitle, reuseIdentifier: "dataCell")
+        let cell = //
             tableView.dequeueReusableCell(withIdentifier: "dataCell") as! CustomTableViewCell
-        //print ("\(title[0])")
-        //print ("\(title[1])")
-        //cell.textLabel?.text = title[0]
-        //cell.detailTextLabel?.text = title[1]
-        print("***\(nameList[0])***")
-        print("***\(placeList[0])***")
-        print("***\(picture_List[0])***")
+   
         cell.name.text = nameList[indexPath.row]
         cell.place.text = placeList[indexPath.row]
         cell.ImageView.image = picture_List[indexPath.row]
-        
-        //print("⭐️セルの作成実行")
         
         return cell
     }
@@ -54,10 +45,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     //セル選択時
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        // 次の画面へ移動
-        //performSegue(withIdentifier: "next", sender: data[indexPath.row])
-    //    print("セル選択時")
-    //    table_id = indexPath.row
     }
     
     @IBAction func comeHome(segue: UIStoryboardSegue){
@@ -96,32 +83,18 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let access = dbAccess()
+        access.dbRebuilding()
+        
+        var dblist = access.listGet()
+        nameList = dblist.0
+        placeList = dblist.1
+        picture_List = dblist.2
+        
         tableView.delegate = self
         tableView.dataSource = self
-        
-        
-        let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
-        let realm = try! Realm(configuration: config)
-        
-        let realm2 = try! Realm()
-        var results = realm2.objects(Restaurant.self)
-        
-        for Restaurant in results {
-        //let dataList1 = [Restaurant.name,Restaurant.place]
-        //dataList.append(dataList1)
-        nameList.append(Restaurant.name)
-        placeList.append(Restaurant.place)
-            
-        if let picture_data = Restaurant.picture_data {
-        let picture_image = UIImage(data: Restaurant.picture_data! as Data)
-            picture_List.append(picture_image!)
-        }else{
-        let picture_image = UIImage(named: "default")
-            picture_List.append(picture_image!)
-        }
-
-        // Do any additional setup after loading the view, typically from a nib.
-        }
+   
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -129,36 +102,26 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         if cflag == 1{
         //    tableView.delegate = self
         //    tableView.dataSource = self
+            let access = dbAccess()
+            access.dbRebuilding()
             
-            let realm = try! Realm()
-            var results = realm.objects(Restaurant.self)
+        //    let realm = try! Realm()
+        //    var results = realm.objects(Restaurant.self)
             
             nameList = []
             placeList = []
             picture_List = []
             
-            for Restaurant in results {
-                //let dataList1 = [Restaurant.name,Restaurant.place]
-                //dataList.append(dataList1)
-                nameList.append(Restaurant.name)
-                placeList.append(Restaurant.place)
-                print("Restaurant.picture_data\(Restaurant.picture_data)")
-                if let picture_data = Restaurant.picture_data {
-                    let picture_image = UIImage(data: Restaurant.picture_data! as Data)
-                    picture_List.append(picture_image!)
-                    print("picturedataがnilでない")
-                }else{
-                    let picture_image = UIImage(named: "default")
-                    picture_List.append(picture_image!)
-                    print("picturedataがnil")
-                }
-                
-            }
+            var dblist = access.listGet()
+            nameList = dblist.0
+            placeList = dblist.1
+            picture_List = dblist.2
+            
         cflag = 0
         tableView.reloadData()
         
         }else{
-        print("cflag\(cflag)")
+            print("cflag\(cflag)")
         }
         
     }

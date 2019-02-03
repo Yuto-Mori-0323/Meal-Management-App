@@ -22,6 +22,7 @@
 		901FC89D21CFE23300856F19 /* registration Page ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901FC89C21CFE23300856F19 /* registration Page ViewController.swift */; };
 		901FC89F21CFEA2E00856F19 /* Search Page ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901FC89E21CFEA2E00856F19 /* Search Page ViewController.swift */; };
 		90219F9021D92BA400A78669 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90219F8F21D92BA400A78669 /* Restaurant.swift */; };
+		9072DD542206AE550096BD3F /* dbAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9072DD532206AE550096BD3F /* dbAccess.swift */; };
 		AE0171F848DCD10F2F2CFF44 /* Pods_Meal_Management.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88C29BCC288BEF5D08AD6352 /* Pods_Meal_Management.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,7 @@
 		901FC89C21CFE23300856F19 /* registration Page ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "registration Page ViewController.swift"; sourceTree = "<group>"; };
 		901FC89E21CFEA2E00856F19 /* Search Page ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Search Page ViewController.swift"; sourceTree = "<group>"; };
 		90219F8F21D92BA400A78669 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		9072DD532206AE550096BD3F /* dbAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dbAccess.swift; sourceTree = "<group>"; };
 		B25C726895C63014A5FA79A0 /* Pods-Meal ManagementTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meal ManagementTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Meal ManagementTests/Pods-Meal ManagementTests.release.xcconfig"; sourceTree = "<group>"; };
 		B2B79A3E1101715AB4780287 /* Pods_Meal_ManagementUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Meal_ManagementUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE4864D38AF631FD107DF8D2 /* Pods-Meal ManagementTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meal ManagementTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Meal ManagementTests/Pods-Meal ManagementTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				901FC89E21CFEA2E00856F19 /* Search Page ViewController.swift */,
 				901FC89C21CFE23300856F19 /* registration Page ViewController.swift */,
 				90219F8F21D92BA400A78669 /* Restaurant.swift */,
+				9072DD532206AE550096BD3F /* dbAccess.swift */,
 				901FC87521CFD4EF00856F19 /* Assets.xcassets */,
 				901FC87721CFD4EF00856F19 /* LaunchScreen.storyboard */,
 				901FC87A21CFD4EF00856F19 /* Info.plist */,
@@ -418,6 +421,7 @@
 				9004CFDB22052C6F00323D46 /* Detail Page.swift in Sources */,
 				901FC86F21CFD4ED00856F19 /* AppDelegate.swift in Sources */,
 				901FC89F21CFEA2E00856F19 /* Search Page ViewController.swift in Sources */,
+				9072DD542206AE550096BD3F /* dbAccess.swift in Sources */,
 				901FC89D21CFE23300856F19 /* registration Page ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

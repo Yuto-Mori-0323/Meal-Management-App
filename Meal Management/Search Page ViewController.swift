@@ -108,8 +108,7 @@ class Search_Page_ViewController: UIViewController,UIPickerViewDelegate,UIPicker
     @IBAction func Search(_ sender: Any) {
         
         
-        let realm = try! Realm()
-        var results = realm.objects(Restaurant.self)
+        
         switch item02{
         case "味":
             item02 = "taste_evaluation"
@@ -166,8 +165,11 @@ class Search_Page_ViewController: UIViewController,UIPickerViewDelegate,UIPicker
             queries = 8
         }
         print("queries: \(queries)")
+       
+       let realm = try! Realm()
+       var results = realm.objects(Restaurant.self)
         
-        switch queries{
+       switch queries{
         case 1:
             results = results.filter("(name CONTAINS %@ || place CONTAINS %@ || genres CONTAINS %@ || recommended_menu CONTAINS %@ ) && genres = %@ && %K >= %@ && total_evaluation >= %@" ,keyword_text,keyword_text,keyword_text,keyword_text,item01,item02,item03,item04)
         case 2:
@@ -187,21 +189,14 @@ class Search_Page_ViewController: UIViewController,UIPickerViewDelegate,UIPicker
         default:
             break
         }
-        
+  
         //データベース検索
+        
         idList = [] // idList初期化
         for Restaurant in results {
-            idList.append(Restaurant.id)
-       //     print("name: \(Restaurant.name)")
-       //     print("place: \(Restaurant.place)")
-       //     print("genres: \(Restaurant.genres)")
-       //     print("taste_evaluation: \(Restaurant.taste_evaluation)")
-       //     print("atmosphere_evaluation: \(Restaurant.atmosphere_evaluation)")
-       //     print("cost_evaluation: \(Restaurant.cost_evaluation)")
-       //     print("recommended_menu: \(Restaurant.recommended_menu)")
-        
+           idList.append(Restaurant.id)
         }
-        
+       
     }
 
     override func viewDidLoad() {
