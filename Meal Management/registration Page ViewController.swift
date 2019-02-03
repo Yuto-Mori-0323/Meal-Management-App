@@ -11,36 +11,35 @@ import RealmSwift
 
 class registration_Page_ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
-    let compos01 = ["中華","フレンチ","イタリアン",""]
-    let compos02 = [5,4,3,2,1]
-    let compos03 = [5,4,3,2,1]
-    let compos04 = [5,4,3,2,1]
-    var picture_data: NSData? = nil
-    var item01 = "" //String
-    var item02 = 0 //String
-    var item03 = 0 //String
-    var item04 = 0 //String
+    let compos01 = ["中華","フレンチ","イタリアン",""] //ジャンル
+    let compos02 = [5,4,3,2,1] //味の評価
+    let compos03 = [5,4,3,2,1] //雰囲気の評価
+    let compos04 = [5,4,3,2,1] //コスパの評価
+    var picture_data: NSData? = nil //画像
+    var item01 = "中華" //初期値はUIPickerViewの一番上の表示
+    var item02 = 5 //初期値はUIPickerViewの一番上の最初の表示
+    var item03 = 5 //初期値はUIPickerViewの一番上の最初の表示
+    var item04 = 5 //初期値はUIPickerViewの一番上の最初の表示
     
-    @IBOutlet weak var name: UITextField!
-    @IBOutlet weak var place: UITextField!
-    @IBOutlet weak var genres: UIPickerView!
-    @IBOutlet weak var taste_evaluation: UIPickerView!
-    @IBOutlet weak var atmosphere_evaluation: UIPickerView!
-    @IBOutlet weak var cost_evaluation: UIPickerView!
+    @IBOutlet weak var name: UITextField! //店名
+    @IBOutlet weak var place: UITextField! //場所
+    @IBOutlet weak var genres: UIPickerView! //ジャンル
+    @IBOutlet weak var taste_evaluation: UIPickerView! //味の評価
+    @IBOutlet weak var atmosphere_evaluation: UIPickerView! //雰囲気の評価
+    @IBOutlet weak var cost_evaluation: UIPickerView! //コスパの評価
+    @IBOutlet weak var recommended_menu: UITextField! //オススメメニュー
     
-    @IBOutlet weak var recommended_menu: UITextField!
-    
+    //カメラロールから写真の選択
     @IBAction func add_picture(_ sender: Any){
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-        // 写真を選ぶビュー
-        let pickerView = UIImagePickerController()
-        // 写真の選択元をカメラロールにする
-        // 「.camera」にすればカメラを起動できる
-        pickerView.sourceType = .photoLibrary
-        // デリゲート
-        pickerView.delegate = self
-        // ビューに表示
-        self.present(pickerView, animated: true)
+            // 写真を選ぶビュー
+            let pickerView = UIImagePickerController()
+            // 写真の選択元をカメラロールにする
+            // 「.camera」にすればカメラを起動できる（メモ）
+            pickerView.sourceType = .photoLibrary
+            pickerView.delegate = self
+            // ビューに表示
+            self.present(pickerView, animated: true)
         }
     }
     
@@ -48,15 +47,14 @@ class registration_Page_ViewController: UIViewController,UIPickerViewDelegate,UI
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         // 選択した写真を取得する
         let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        //UIImageをNSDataに変換(UIImageはRealmで保存できないため)
         picture_data = image.pngData()! as NSData
-        // ビューに表示する
-        //self.imageView.image = image
         // 写真を選ぶビューを引っ込める
         self.dismiss(animated: true)
     }
     
     
-  // UIPickerView作成
+    // ここからUIPickerView作成
     // UIPickerViewの列の数
     func numberOfComponents(in pickerView: UIPickerView) -> Int{
         switch pickerView.tag {
@@ -88,8 +86,6 @@ class registration_Page_ViewController: UIViewController,UIPickerViewDelegate,UI
             return 0
         }
     }
-    
-    // 各コンポーネントの横幅の指定
     
     // UIPickerViewの最初の表示
     func pickerView(_ pickerView: UIPickerView,
@@ -126,7 +122,9 @@ class registration_Page_ViewController: UIViewController,UIPickerViewDelegate,UI
             break
         }
     }
+    // ここまでUIPickerView作成
     
+    //登録開始
     @IBAction func Registration(_ sender: Any) {
         let access = dbAccess()
         access.dbRebuilding()
@@ -141,18 +139,25 @@ class registration_Page_ViewController: UIViewController,UIPickerViewDelegate,UI
         restaurant.recommended_menu = recommended_menu.text!
         let total_evaluation = item02 + item03 + item04
         restaurant.total_evaluation = total_evaluation
-        restaurant.picture_data = picture_data!
+        if let picture_data = picture_data {
+            restaurant.picture_data = picture_data
+        }else{
+            //写真を選択していなかったらデフォルト写真を設定
+            let picture_image = UIImage(named: "default")
+            picture_data = picture_image?.pngData()! as! NSData
+            restaurant.picture_data = picture_data
+        }
         
         access.dbRegistration(restaurant:restaurant)
 
+        //前の画面に戻ったときDBを再読み込みしTableViewを再表示させる
         cflag = 1
-   }
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Delegate設定
         genres.delegate = self
         genres.dataSource = self
         genres.tag = 1

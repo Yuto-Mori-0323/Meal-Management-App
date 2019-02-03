@@ -9,33 +9,31 @@
 import UIKit
 import RealmSwift
 
-var idList = [Int]() //グローバル変数
+var idList = [Int]() //検索結果画面(Search_Results_Page)に値を引き継ぎたいため、クラス外に変数を定義
 
 class Search_Page_ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
 
+    //UIPickerViewに表示する内容
+    //表示を追加したい場合はここに追加
     var compos01 = ["","中華","フレンチ","イタリアン"]
     var compos02 = ["","味","雰囲気","コスパ"]
     var compos03 = ["","5","4","3","2","1"]
     var compos04 = ["","15","14","13","12","11","10","9","8","7","6","5","4","3"]
-    var item01 = "" //String
-    var item02 = "" //String
-    var item03:Int? = 0 //Int オプショナル
-    var item04:Int? = 0 //Int オプショナル
+    
+    var item01 = "" //検索キーワード
+    var item02 = "" //検索ジャンル
+    var item03:Int? = 0 //個別(味 or 雰囲気 or コスパ)の評価値
+    var item04:Int? = 0 //評価値の合計
     var queries:Int = 0 //クエリ
     
-    @IBOutlet weak var keyword: UITextField!
-    @IBOutlet weak var genres: UIPickerView!
-    @IBOutlet weak var evaluation_item: UIPickerView!
-    @IBOutlet weak var evaluation_point: UIPickerView!
-    @IBOutlet weak var evaluation_totalpoint: UIPickerView!
+    @IBOutlet weak var keyword: UITextField! //検索キーワード
+    @IBOutlet weak var genres: UIPickerView! //検索ジャンル
+    @IBOutlet weak var evaluation_item: UIPickerView! //評価値の種類
+    @IBOutlet weak var evaluation_point: UIPickerView! //個別(味 or 雰囲気 or コスパ)の評価値
+    @IBOutlet weak var evaluation_totalpoint: UIPickerView! //評価値の合計
     
-    @IBAction func gotoTop(_ sender: Any) {
-        // 現在のシーンを閉じて元のシーンに戻る
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    // UIPickerView作成
-    // UIPickerViewの列の数
+    //ここからUIPickerView作成
+    //UIPickerViewの列の数
     func numberOfComponents(in pickerView: UIPickerView) -> Int{
         switch pickerView.tag {
         case 1:
@@ -51,7 +49,7 @@ class Search_Page_ViewController: UIViewController,UIPickerViewDelegate,UIPicker
         }
     }
     
-    // UIPickerViewの行数、リストの数
+    //UIPickerViewの行数、リストの数
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
         switch pickerView.tag {
         case 1:
@@ -67,9 +65,7 @@ class Search_Page_ViewController: UIViewController,UIPickerViewDelegate,UIPicker
         }
     }
     
-    // 各コンポーネントの横幅の指定
-    
-    // UIPickerViewの最初の表示
+    //UIPickerViewの最初の表示
     func pickerView(_ pickerView: UIPickerView,
                     titleForRow row: Int,
                     forComponent component: Int) -> String? {
@@ -87,7 +83,7 @@ class Search_Page_ViewController: UIViewController,UIPickerViewDelegate,UIPicker
         }
     }
     
-    // UIPickerViewのRowが選択された時の挙動
+    //UIPickerViewのRowが選択された時の挙動
     func pickerView(_ pickerView: UIPickerView,
                     didSelectRow row: Int,
                     inComponent component: Int) {
@@ -104,11 +100,12 @@ class Search_Page_ViewController: UIViewController,UIPickerViewDelegate,UIPicker
             break
         }
     }
-
+    //ここまでUIPickerView作成
+    
+    //検索開始
+    //各選択項目に対してor条件で検索される
     @IBAction func Search(_ sender: Any) {
-        
-        
-        
+        //クエリ文で使用できる変数名(Restaurantクラスのプロパティ名)に変更
         switch item02{
         case "味":
             item02 = "taste_evaluation"
@@ -120,33 +117,29 @@ class Search_Page_ViewController: UIViewController,UIPickerViewDelegate,UIPicker
             break
         }
        
-        //評価の点数が空欄　→ 検索条件から外す
+        /*評価の点数が空欄　→ 検索条件から外す
+        0にすることで全てのデータが検索される*/
         if item03 == nil {
            item03 = 0
         }
         
         let item03_unwrap = item03!
         
-        //評価合計の点数が空欄　→ 検索条件から外す
+        /*評価の点数が空欄　→ 検索条件から外す
+         0にすることで全てのデータが検索される*/
         if item04 == nil {
             item04 = 0
         }
         
         let item04_unwrap = item04!
         
+        //オプショナルバリューのためアンラップ
         guard let keyword_text = keyword.text else{
             return
         }
         
-        
-        print("keyword_text: \(keyword_text)")
-        print("item01: \(item01)")
-        print("item02: \(item02)")
-        print("item03: \(item03)")
-        print("item03_unwrap: \(item03_unwrap)")
-        
-        //キーワード、ジャンル、評価項目それぞれが未記入の場合毎にクエリ文を生成
-        
+        /*キーワード、ジャンル、評価項目それぞれが未記入の場合において場合分けし、
+        各場合毎にクエリ文を生成*/
         if keyword_text != "",item01 != "",item02 != ""{
             queries = 1
         }else if keyword_text != "",item01 != "",item02 == ""{
@@ -164,12 +157,12 @@ class Search_Page_ViewController: UIViewController,UIPickerViewDelegate,UIPicker
         }else if keyword_text == "",item01 == "",item02 == ""{
             queries = 8
         }
-        print("queries: \(queries)")
-       
-       let realm = try! Realm()
-       var results = realm.objects(Restaurant.self)
         
-       switch queries{
+        //Dbアクセス開始
+        let realm = try! Realm()
+        var results = realm.objects(Restaurant.self)
+        
+        switch queries{
         case 1:
             results = results.filter("(name CONTAINS %@ || place CONTAINS %@ || genres CONTAINS %@ || recommended_menu CONTAINS %@ ) && genres = %@ && %K >= %@ && total_evaluation >= %@" ,keyword_text,keyword_text,keyword_text,keyword_text,item01,item02,item03,item04)
         case 2:
@@ -189,14 +182,11 @@ class Search_Page_ViewController: UIViewController,UIPickerViewDelegate,UIPicker
         default:
             break
         }
-  
-        //データベース検索
-        
+        //詳細ページで表示するため、検索結果のid(プライマリキー)を取得
         idList = [] // idList初期化
         for Restaurant in results {
            idList.append(Restaurant.id)
         }
-       
     }
 
     override func viewDidLoad() {
