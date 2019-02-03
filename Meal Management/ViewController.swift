@@ -88,7 +88,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         let indexPath = self.tableView.indexPath(for: cell)!
         //assert(segue.destinationViewController.isKindOfClass(detailViewController))
         let Detail_Page = segue.destination as! Detail_Page
-        Detail_Page.tabel_id = indexPath.row
+        Detail_Page.tabel_id = indexPath.row + 1
     }
     //    var Detail_Page = segue.destination as! Detail_Page
     //    Detail_Page.tabel_id = table_id

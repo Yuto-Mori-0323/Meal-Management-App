@@ -9,6 +9,8 @@
 import UIKit
 import RealmSwift
 
+var idList = [Int]() //グローバル変数
+
 class Search_Page_ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
 
     var compos01 = ["","中華","フレンチ","イタリアン"]
@@ -19,7 +21,7 @@ class Search_Page_ViewController: UIViewController,UIPickerViewDelegate,UIPicker
     var item02 = "" //String
     var item03:Int? = 0 //Int オプショナル
     var item04:Int? = 0 //Int オプショナル
-    var queries:Int = 0
+    var queries:Int = 0 //クエリ
     
     @IBOutlet weak var keyword: UITextField!
     @IBOutlet weak var genres: UIPickerView!
@@ -187,14 +189,17 @@ class Search_Page_ViewController: UIViewController,UIPickerViewDelegate,UIPicker
         }
         
         //データベース検索
+        idList = [] // idList初期化
         for Restaurant in results {
-            print("name: \(Restaurant.name)")
-            print("place: \(Restaurant.place)")
-            print("genres: \(Restaurant.genres)")
-            print("taste_evaluation: \(Restaurant.taste_evaluation)")
-            print("atmosphere_evaluation: \(Restaurant.atmosphere_evaluation)")
-            print("cost_evaluation: \(Restaurant.cost_evaluation)")
-            print("recommended_menu: \(Restaurant.recommended_menu)")
+            idList.append(Restaurant.id)
+       //     print("name: \(Restaurant.name)")
+       //     print("place: \(Restaurant.place)")
+       //     print("genres: \(Restaurant.genres)")
+       //     print("taste_evaluation: \(Restaurant.taste_evaluation)")
+       //     print("atmosphere_evaluation: \(Restaurant.atmosphere_evaluation)")
+       //     print("cost_evaluation: \(Restaurant.cost_evaluation)")
+       //     print("recommended_menu: \(Restaurant.recommended_menu)")
+        
         }
         
     }

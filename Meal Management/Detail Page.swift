@@ -30,7 +30,7 @@ class Detail_Page: UIViewController {
         
         let realm = try! Realm()
         // プライマリキーを指定してオブジェクトを取得
-        if let Object = realm.object(ofType:Restaurant.self,forPrimaryKey: tabel_id + 1) {
+        if let Object = realm.object(ofType:Restaurant.self,forPrimaryKey: tabel_id ) {
             
             print("Object \(Object)")
             name.text = Object.name
