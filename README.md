@@ -9,8 +9,8 @@
 
 # 動作確認環境
 Xcode 10.1  
-Swift 4.2.1 
-ios 12.1
+Swift 4.2.1  
+ios 12.1  
 CocoaPods 1.6.0  
 RealmSwift 3.13.0  
 
